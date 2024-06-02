@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:ui_challenge_day_1/days/day1/pages/search_page.dart';
 
 
 

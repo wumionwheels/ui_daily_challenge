@@ -22,7 +22,7 @@ class ProductTile extends StatelessWidget {
           children: [
             // product image
             Container(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 color: Theme.of(context).colorScheme.surface,
