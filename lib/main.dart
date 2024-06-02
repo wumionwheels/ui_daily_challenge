@@ -14,12 +14,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ChangeNotifierProvider(
+      create: (context) => Shop(),
+      builder: (context, child) =>
+      MaterialApp(
     debugShowCheckedModeBanner: false,
     title: 'Dayly UI Challenge',
     theme: lightMode,
-    home: const SearchPage(),
-        );
+    home: const SearchPage()
+      )
+    );
+  
+
+
+        
   }
+
 }
 

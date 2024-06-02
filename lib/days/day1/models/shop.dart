@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:ui_challenge_day_1/days/day1/models/product.dart';
 
-class Shop {
+class Shop extends ChangeNotifier {
   // list of products
   final List<Product> _productList = [
     // product 1
