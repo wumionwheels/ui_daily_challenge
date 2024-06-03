@@ -82,7 +82,7 @@ flutter:
   fonts:
     - family: OPTIVenus
       fonts:
-        - asset: assets/fonts/optivenusbold-condensed.otf
+        - asset: assets/fonts/optivenus-boldextended.otf
     - family: Sora
       fonts:
         - asset: assets/fonts/Sora-Bold.ttf
