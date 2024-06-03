@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
-import 'package:ui_challenge_day_1/days/day1/components/my_buttom_nav.dart';
-import 'package:ui_challenge_day_1/days/day1/components/product_tile.dart';
+import 'package:ui_challenge_day_1/days/components/my_buttom_nav.dart';
+import 'package:ui_challenge_day_1/days/components/product_tile.dart';
 import 'package:ui_challenge_day_1/days/day1/models/shop.dart';
 import 'package:ui_challenge_day_1/days/day1/models/product.dart';
 
@@ -115,12 +115,14 @@ class _SearchPageState extends State<SearchPage> {
               ),
             ),
             Expanded(
+              
               child: Padding(
                 padding: const EdgeInsets.only(
                   right: 4,
                   left: 16
                 ),
               child: MasonryGridView.builder(
+                
                 gridDelegate:
                     const SliverSimpleGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,

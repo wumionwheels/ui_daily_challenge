@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_challenge_day_1/days/day1/models/shop.dart';
-import 'package:ui_challenge_day_1/days/day1/pages/search_page.dart';
 import 'package:ui_challenge_day_1/days/day1/themes/my_lightmode.dart';
+import 'package:ui_challenge_day_1/days/day2/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     debugShowCheckedModeBanner: false,
     title: 'Dayly UI Challenge',
     theme: lightMode,
-    home: const SearchPage()
+    home: const HomePage()
       )
     );
   
