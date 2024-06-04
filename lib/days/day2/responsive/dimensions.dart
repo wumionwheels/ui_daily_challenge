@@ -1,4 +1,5 @@
 
 
 const mobileWidth = 500;
-const tabletWidth = 1024;
+const smallTabletWidth = 800;
+const bigTabletWidth = 1024;

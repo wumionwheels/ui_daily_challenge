@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_challenge_day_1/days/day1/models/product.dart';
+import 'package:ui_challenge_day_1/days/models/product.dart';
 
 
 class ProductTile extends StatelessWidget {
