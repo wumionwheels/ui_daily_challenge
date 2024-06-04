@@ -58,58 +58,53 @@ var myDrawer = ClipRRect(
         left: 40.0,
         top: 40,
         bottom: 52,
+        right: 40,
       ),
-        child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Image.asset(
-                          'lib/days/images/logo.png', 
-                          width: 28,
-                          height: 28,
-                        ),
-                        const SizedBox(width: 12,),
-                        const Text(
-                            'CHEQUE',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        const SizedBox(width: 12,),
-                        Container(
-                          padding: const EdgeInsets.only(
-                            top: 2,
-                            bottom: 2,
-                            left: 4,
-                            right: 4
-                          ),
-                          decoration: BoxDecoration(
-                            color: const Color.fromRGBO(248, 171, 138, 1),
-                            borderRadius: BorderRadius.circular(4)
-                          ),
-                          child: const Text(
-                            'BASIC',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 8,
-                              fontWeight: FontWeight.bold
-                            ),
-                          ),
-                        )
-                      ],
+                    Image.asset(
+                      'lib/days/images/logo.png', 
+                      width: 28,
+                      height: 28,
                     ),
-                    const SizedBox(height: 80,),
-                    const Day2DrawerTile(),
-                    
+                    const SizedBox(width: 12,),
+                    const Text(
+                        'CHEQUE',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    const SizedBox(width: 12,),
+                    Container(
+                      padding: const EdgeInsets.only(
+                        top: 2,
+                        bottom: 2,
+                        left: 4,
+                        right: 4
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(248, 171, 138, 1),
+                        borderRadius: BorderRadius.circular(4)
+                      ),
+                      child: const Text(
+                        'BASIC',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 8,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    )
                   ],
                 ),
-                Container(
+          const SizedBox(height: 80,),
+          const Day2DrawerTile(),
+          Container(
                       padding: const EdgeInsets.all(28),
                       alignment: Alignment.bottomLeft,
                       width: 190,
@@ -142,8 +137,8 @@ var myDrawer = ClipRRect(
                         ),
                       ),
                 )
-              ],
-            ),
-          ),
-        ),
+        ],
+      ),
+    ),
+  ),
 );
