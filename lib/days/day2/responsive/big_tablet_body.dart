@@ -27,11 +27,13 @@ class BigTabletBody extends StatelessWidget {
               ],
             )
           ),
-          Expanded(
-            flex: 1,
-            child: rightMobileContainer
-          )
-
+          ConstrainedBox(
+          constraints: const BoxConstraints(
+            minWidth: 416,
+            maxWidth: 544
+          ),
+          child: rightTabletContainer,
+        ),
         ],
       ),
     );

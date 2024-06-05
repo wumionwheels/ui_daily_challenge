@@ -32,10 +32,13 @@ class MyDesktopBody extends StatelessWidget {
                   lastSection
                 ],
               )),
-          Expanded(
-            flex: 1, 
-            child: rightDesktopContainer
+          ConstrainedBox(
+          constraints: const BoxConstraints(
+            minWidth: 416,
+            maxWidth: 544
           ),
+          child: rightDesktopContainer,
+        ),
         ],
       ),
     );

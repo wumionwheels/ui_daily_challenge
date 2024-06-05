@@ -191,14 +191,33 @@ var rightDesktopContainer = Container(
   ),
 );
 
-var rightMobileContainer = Container(
+
+var rightTabletContainer = Container(
   width: 361,
   color: Colors.white,
   child:  Padding(
     padding: EdgeInsets.all(40),
     child: Column(
       children: [
+        contracts,
         const SizedBox(height: 80,),
+        transactions
+      ],
+    ),
+  ),
+);
+
+
+var rightMobileContainer = Container(
+  width: 361,
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(32),
+    color: Colors.white,
+  ),
+  child:  Padding(
+    padding: EdgeInsets.all(40),
+    child: Column(
+      children: [
         contracts,
         const SizedBox(height: 80,),
         transactions
