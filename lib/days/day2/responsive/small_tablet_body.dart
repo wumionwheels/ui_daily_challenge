@@ -17,9 +17,11 @@ class SmallTabletBody extends StatelessWidget {
         children: [
           topSection,
           const SizedBox(height: 80,),
-          midSection,
+          upcomingPayment,
           const SizedBox(height: 80,),
-          lastSection
+          lastSection,
+          const SizedBox(height: 80,),
+          rightMobileContainer
         ],
       ),
     );

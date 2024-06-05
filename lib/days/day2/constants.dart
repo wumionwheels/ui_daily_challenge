@@ -6,6 +6,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:ui_challenge_day_1/days/components/day2_drawer_tile.dart';
+import 'package:ui_challenge_day_1/days/components/my_list_tile.dart';
+import 'package:ui_challenge_day_1/days/components/wallet_card.dart';
 import 'package:ui_challenge_day_1/days/models/currency.dart';
 
 var myDefaultBackgroundColor = Colors.grey.shade100;
@@ -118,8 +120,8 @@ var myDrawer = ClipRRect(
               ),
               gradient: LinearGradient(
                 colors: [
-                  Color(0xFFF8AB8A),
-                  Color(0xFFF8DA8A),
+                  Color.fromRGBO(248, 171, 138, 1),
+                  Color.fromRGBO(248, 218, 138, 1),
                 ],
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
@@ -146,6 +148,7 @@ var myDrawer = ClipRRect(
 );
 
 var rightDesktopContainer = Container(
+  width: 361,
   color: Colors.white,
   child: Padding(
     padding: const EdgeInsets.all(40),
@@ -179,6 +182,10 @@ var rightDesktopContainer = Container(
             ),
           ],
         ),
+        const SizedBox(height: 80,),
+        contracts,
+        const SizedBox(height: 80,),
+        transactions
       ],
     ),
   ),
@@ -187,12 +194,84 @@ var rightDesktopContainer = Container(
 var rightMobileContainer = Container(
   width: 361,
   color: Colors.white,
-  child: const Padding(
+  child:  Padding(
     padding: EdgeInsets.all(40),
     child: Column(
-      children: [],
+      children: [
+        const SizedBox(height: 80,),
+        contracts,
+        const SizedBox(height: 80,),
+        transactions
+      ],
     ),
   ),
+);
+
+var topMobileSection = Column(
+  children: [
+    Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          'Wallet Balance',
+          style: TextStyle(
+              fontFamily: 'OPTIVenus',
+              fontSize: 16,
+              color: Colors.grey.shade800,
+              fontWeight: FontWeight.bold),
+        ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              'Add new wallet',
+              style: TextStyle(color: Colors.grey.shade800),
+            ),
+            const SizedBox(
+              width: 12,
+            ),
+            Icon(Iconsax.wallet_add_1)
+          ],
+        )
+      ],
+    ),
+    const SizedBox(
+      height: 20,
+    ),
+    Column(
+      children: [
+        FractionallySizedBox(
+          widthFactor: 1.0,
+          child: WalletCard(
+            backgroundImage: 'lib/days/images/circle lines 1.png',
+            logoImage: 'lib/days/images/logo on card 1.png',
+            amount: formatCurrency(40342),
+            cardNumber: '4589  8345  5356  9053',
+            expiryDate: '10/20',
+            hiddenCode: '***',
+            backgroundColor: const Color.fromRGBO(41, 41, 61, 1),
+            textColor: Colors.white,
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        FractionallySizedBox(
+          widthFactor: 1.0,
+          child: WalletCard(
+            backgroundImage: 'lib/days/images/circle lines 2.png',
+            logoImage: 'lib/days/images/logo on card 2.png',
+            amount: formatCurrency(930.23),
+            cardNumber: '4589  8345  5356  9053',
+            expiryDate: '10/20',
+            hiddenCode: '***',
+            backgroundColor: const Color.fromRGBO(248, 235, 233, 1),
+            textColor: const Color.fromRGBO(153, 114, 102, 1),
+          ),
+        )
+      ],
+    )
+  ],
 );
 
 var topSection = Column(
@@ -226,196 +305,40 @@ var topSection = Column(
     const SizedBox(
       height: 20,
     ),
-    Column(
-      children: [
-        Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            FractionallySizedBox(
-              widthFactor: 1,
-              child: Container(
-                  padding: const EdgeInsets.all(24),
-                  alignment: Alignment.bottomLeft,
-                  width: 361,
-                  height: 224,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(32)),
-                    image: DecorationImage(
-                      image: AssetImage('lib/days/images/circle lines 1.png'),
-                    ),
-                    color: Color.fromRGBO(41, 41, 61, 1),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        'lib/days/images/logo on card 1.png',
-                        width: 28,
-                        height: 28,
-                      ),
-                      const SizedBox(
-                        height: 24,
-                      ),
-                      Text(
-                        formatCurrency(40342),
-                        style: const TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'OPTIVenus',
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      const Text(
-                        '4589  8345  5356  9053',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'OPTIVenus',
-                            fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      const Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            '10/20',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 24,
-                          ),
-                          Text(
-                            '***',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  )),
-            ),
-            FractionallySizedBox(
-              widthFactor: 1,
-              child: ClipRRect(
-                borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(32)),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                  child: Container(
-                    height: 104,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
-                    ),
-                  ),
-                ),
-              ),
-            )
-          ],
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            FractionallySizedBox(
-              widthFactor: 1,
-              child: Container(
-                  padding: const EdgeInsets.all(24),
-                  alignment: Alignment.bottomLeft,
-                  width: 361,
-                  height: 224,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(32)),
-                    image: DecorationImage(
-                      image: AssetImage('lib/days/images/circle lines 2.png'),
-                    ),
-                    color: Color.fromRGBO(248, 235, 233, 1),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        'lib/days/images/logo on card 2.png',
-                        width: 28,
-                        height: 28,
-                      ),
-                      const SizedBox(
-                        height: 24,
-                      ),
-                      Text(
-                        formatCurrency(40342),
-                        style: const TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'OPTIVenus',
-                            color: Color.fromRGBO(153, 114, 102, 1),
-                            fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      const Text(
-                        '4589  8345  5356  9053',
-                        style: TextStyle(
-                            color: Color.fromRGBO(153, 114, 102, 1),
-                            fontFamily: 'OPTIVenus',
-                            fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      const Row(
-                        children: [
-                          Text(
-                            '10/20',
-                            style: TextStyle(
-                              color: Color.fromRGBO(153, 114, 102, 1),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 24,
-                          ),
-                          Text(
-                            '***',
-                            style: TextStyle(
-                              color: Color.fromRGBO(153, 114, 102, 1),
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  )),
-            ),
-            FractionallySizedBox(
-              widthFactor: 1,
-              child: ClipRRect(
-                borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(32)),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                  child: Container(
-                    height: 104,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
-                    ),
-                  ),
-                ),
-              ),
-            )
-          ],
-        )
-      ],
+    SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          WalletCard(
+            backgroundImage: 'lib/days/images/circle lines 1.png',
+            logoImage: 'lib/days/images/logo on card 1.png',
+            amount: formatCurrency(40342),
+            cardNumber: '4589  8345  5356  9053',
+            expiryDate: '10/20',
+            hiddenCode: '***',
+            backgroundColor: const Color.fromRGBO(41, 41, 61, 1),
+            textColor: Colors.white,
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          WalletCard(
+            backgroundImage: 'lib/days/images/circle lines 2.png',
+            logoImage: 'lib/days/images/logo on card 2.png',
+            amount: formatCurrency(923.21),
+            cardNumber: '4589  8345  5356  9053',
+            expiryDate: '10/20',
+            hiddenCode: '***',
+            backgroundColor: const Color.fromRGBO(248, 235, 233, 1),
+            textColor: const Color.fromRGBO(153, 114, 102, 1),
+          )
+        ],
+      ),
     )
   ],
 );
 
-var midSection = Column(
+var upcomingPayment = Column(
   children: [
     Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -446,212 +369,366 @@ var midSection = Column(
     const SizedBox(
       height: 20,
     ),
-    FractionallySizedBox(
-      widthFactor: 1,
-      child: Container(
-        height: 80,
-        child: Row(
-          children: [
-            Image.asset(
-              'lib/days/images/image 1.png',
-              width: 80,
-              height: 80,
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            const Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'From OverlayHq',
-                        style: TextStyle(
-                            color: Color.fromRGBO(93, 100, 111, 1),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16),
-                      ),
-                      Text(
-                        '+ 10,000',
-                        style: TextStyle(
-                            color: Color.fromRGBO(93, 100, 111, 1),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 12,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Jan 13th, 2023',
-                        style: TextStyle(
-                          color: Color.fromRGBO(151, 158, 168, 1),
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            'Due in 3 days',
-                            style: TextStyle(
-                              color: Color.fromRGBO(151, 158, 168, 1),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          Icon(
-                            Iconsax.info_circle,
-                            size: 16,
-                            color: Color.fromRGBO(151, 158, 168, 1),
-                          )
-                        ],
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            )
-          ],
+    const MyListTile(
+      containerHeight: 80,
+      image: 'lib/days/images/image 1.png',
+      imageWidth: 80,
+      imageHeight: 80,
+      headerText: 'From OverlayHq',
+      amount: '+ 10,000',
+      subText: 'Jan 13th, 2023',
+      children: [
+        Text(
+          'Due in 3 days',
+          style: TextStyle(
+            color: Color.fromRGBO(151, 158, 168, 1),
+          ),
         ),
+        SizedBox(
+          width: 12,
+        ),
+        Icon(
+          Iconsax.info_circle,
+          size: 16,
+          color: Color.fromRGBO(151, 158, 168, 1),
+        )
+      ],
+    ),
+    const SizedBox( height: 20),
+    const MyListTile(
+      containerHeight: 80,
+      image: 'lib/days/images/image 2.png',
+      imageWidth: 80,
+      imageHeight: 80,
+      headerText: 'From Binance',
+      amount: '+ 8,000',
+      subText: 'Jan 30th, 2023',
+      children: [
+        Text(
+          'Due in 20 days',
+          style: TextStyle(
+            color: Color.fromRGBO(151, 158, 168, 1),
+          ),
+        ),
+        SizedBox(
+          width: 12,
+        ),
+        Icon(
+          Iconsax.info_circle,
+          size: 16,
+          color: Color.fromRGBO(151, 158, 168, 1),
+        )
+      ],
+    ),
+    
+  ],
+);
+
+var lastSection = FractionallySizedBox(
+  widthFactor: 1.0,
+  child: Stack(alignment: Alignment.topRight, children: [
+    Container(
+      padding: const EdgeInsets.only(left: 40, top: 40, bottom: 40),
+      alignment: Alignment.topLeft,
+      height: 254,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(32)),
+        image: DecorationImage(
+          image: AssetImage('lib/days/images/lines 2.png'),
+        ),
+        color: Color.fromRGBO(249, 212, 139, 1),
       ),
+      child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            minHeight: 88,
+            maxHeight: 174,
+            maxWidth: 300,
+          ),
+          child: Text(
+            'Experience true digital banking experience',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.grey.shade800,
+              fontFamily: 'OPTIVenus',
+              letterSpacing: 0.5,
+            ),
+          )),
+    ),
+    Container(
+      padding: const EdgeInsets.all(28),
+      alignment: Alignment.topLeft,
+      width: 176,
+      height: 254,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(32), bottomRight: Radius.circular(32)),
+        image: DecorationImage(
+          image: AssetImage('lib/days/images/lines 2.png'),
+        ),
+        color: Color.fromRGBO(252, 237, 207, 1),
+      ),
+    ),
+    Padding(
+      padding:
+          const EdgeInsets.only(right: 36.0, top: 48, left: 300, bottom: 182),
+      child: Image.asset(
+        'lib/days/images/image 3.png',
+        width: 24,
+        height: 24,
+      ),
+    ),
+    Padding(
+      padding:
+          const EdgeInsets.only(right: 136.0, top: 40, left: 216, bottom: 125),
+      child: Image.asset(
+        'lib/days/images/image 4.png',
+        width: 88,
+        height: 88,
+      ),
+    ),
+    Padding(
+      padding:
+          const EdgeInsets.only(right: 136.0, top: 172, left: 216, bottom: 56),
+      child: Image.asset(
+        'lib/days/images/image 5.png',
+        width: 24,
+        height: 24,
+      ),
+    )
+  ]),
+);
+
+
+
+var contracts = Column(
+  children: [
+    Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Text(
+          'Contracts',
+          style: TextStyle(
+              fontFamily: 'OPTIVenus',
+              fontSize: 16,
+              color: Colors.grey.shade800,
+              fontWeight: FontWeight.bold),
+        ),
+      ],
     ),
     const SizedBox(
       height: 20,
     ),
-    FractionallySizedBox(
-      widthFactor: 1,
-      child: Container(
-        height: 80,
-        child: Row(
+    const MyListTile(
+      containerHeight: 80,
+      image: 'lib/days/images/image 1.png',
+      imageWidth: 80,
+      imageHeight: 80,
+      headerText: 'From OverlayHq',
+      amount: '+ 10,000',
+      subText: 'UI/UX Designer  Full time',
+      children: [
+        Text(
+          'Monthly',
+          style: TextStyle(
+            color: Color.fromRGBO(151, 158, 168, 1),
+          ),
+        ),
+      ],
+    ),
+    const SizedBox( height: 20),
+    const MyListTile(
+      containerHeight: 80,
+      image: 'lib/days/images/image 2.png',
+      imageWidth: 80,
+      imageHeight: 80,
+      headerText: 'From Binance',
+      amount: '+ 8,000',
+      subText: 'Visual Designer  Contract',
+      children: [
+        Text(
+          'Weekly',
+          style: TextStyle(
+            color: Color.fromRGBO(151, 158, 168, 1),
+          ),
+        ),
+      ],
+    ),
+    
+  ],
+);
+
+
+var transactions = Column(
+  children: [
+    Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          'Transactions',
+          style: TextStyle(
+              fontFamily: 'OPTIVenus',
+              fontSize: 16,
+              color: Colors.grey.shade800,
+              fontWeight: FontWeight.bold),
+        ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(
-              'lib/days/images/image 2.png',
-              width: 80,
-              height: 80,
+            Text(
+              'View all',
+              style: TextStyle(color: Colors.grey.shade800),
             ),
             const SizedBox(
-              width: 20,
+              width: 12,
             ),
-            const Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'From Binance',
-                        style: TextStyle(
-                            color: Color.fromRGBO(93, 100, 111, 1),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16),
-                      ),
-                      Text(
-                        '+ 8,000',
-                        style: TextStyle(
-                            color: Color.fromRGBO(93, 100, 111, 1),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 12,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Jan 13th, 2023',
-                        style: TextStyle(
-                          color: Color.fromRGBO(151, 158, 168, 1),
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            'Due in 3 days',
-                            style: TextStyle(
-                              color: Color.fromRGBO(151, 158, 168, 1),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          Icon(
-                            Iconsax.info_circle,
-                            size: 16,
-                            color: Color.fromRGBO(151, 158, 168, 1),
-                          )
-                        ],
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            )
+            const Icon(Iconsax.arrow_right_1)
           ],
+        )
+      ],
+    ),
+    const SizedBox(
+      height: 40,
+    ),
+    MyListTile(
+      containerHeight: 56,
+      image: 'lib/days/images/image 6.png',
+      imageWidth: 54,
+      imageHeight: 54,
+      headerText: 'From OverlayHq',
+      amount: '+ 8,000',
+      subText: 'Visual Designer  Contract',
+      children: [
+        Container(
+          padding: const EdgeInsets.all(4),
+          decoration: const BoxDecoration(
+            color: Color.fromRGBO(233, 239, 252, 1)
+          ),
+          child: const Text(
+            'RECEIVED',
+            style: TextStyle(
+              color: Color.fromRGBO(91, 139, 232, 1),
+              fontSize: 12
+            ),
+          ),
         ),
-      ),
+      ],
+    ),
+    const SizedBox( height: 20),
+    MyListTile(
+      containerHeight: 56,
+      image: 'lib/days/images/image 7.png',
+      imageWidth: 54,
+      imageHeight: 54,
+      headerText: 'From Binance',
+      amount: '+ 8,000',
+      subText: 'Visual Designer  Contract',
+      children: [
+        Container(
+          padding: const EdgeInsets.all(4),
+          decoration: const BoxDecoration(
+            color: Color.fromRGBO(233, 239, 252, 1)
+          ),
+          child: const Text(
+            'RECEIVED',
+            style: TextStyle(
+              color: Color.fromRGBO(91, 139, 232, 1),
+              fontSize: 12
+            ),
+          ),
+        ),
+      ],
+    ),
+    const SizedBox( height: 20),
+    MyListTile(
+      containerHeight: 56,
+      image: 'lib/days/images/image 8.png',
+      imageWidth: 54,
+      imageHeight: 54,
+      headerText: 'To Coinbase',
+      amount: '+ 18,000',
+      subText: 'Visual Designer  Contract',
+      children: [
+        Container(
+          padding: const EdgeInsets.all(4),
+          decoration: const BoxDecoration(
+            color: Color.fromRGBO(245, 245, 245, 1)
+          ),
+          child: const Text(
+            'WITHDRAWN',
+            style: TextStyle(
+              color: Color.fromRGBO(151, 158, 168, 1),
+              fontSize: 12
+            ),
+          ),
+        ),
+      ],
+    ),
+    const SizedBox( height: 20),
+    MyListTile(
+      containerHeight: 56,
+      image: 'lib/days/images/image 7.png',
+      imageWidth: 54,
+      imageHeight: 54,
+      headerText: 'From Binance',
+      amount: '+ 8,000',
+      subText: 'Visual Designer  Contract',
+      children: [
+        Container(
+          padding: const EdgeInsets.all(4),
+          decoration: const BoxDecoration(
+            color: Color.fromRGBO(233, 239, 252, 1)
+          ),
+          child: const Text(
+            'RECEIVED',
+            style: TextStyle(
+              color: Color.fromRGBO(91, 139, 232, 1),
+              fontSize: 12
+            ),
+          ),
+        ),
+      ],
+    ),
+    const SizedBox( height: 20),
+    MyListTile(
+      containerHeight: 56,
+      image: 'lib/days/images/image 8.png',
+      imageWidth: 54,
+      imageHeight: 54,
+      headerText: 'To Coinbase',
+      amount: '+ 18,000',
+      subText: 'Visual Designer  Contract',
+      children: [
+        Container(
+          padding: const EdgeInsets.all(4),
+          decoration: const BoxDecoration(
+            color: Color.fromRGBO(245, 245, 245, 1)
+          ),
+          child: const Text(
+            'WITHDRAWN',
+            style: TextStyle(
+              color: Color.fromRGBO(151, 158, 168, 1),
+              fontSize: 12
+            ),
+          ),
+        ),
+      ],
     ),
   ],
 );
 
-var lastSection = Stack(alignment: Alignment.centerRight, children: [
-  FractionallySizedBox(
-    widthFactor: 2,
-    child: Container(
-      padding: const EdgeInsets.all(28),
-      alignment: Alignment.topLeft,
-      width: 190,
-      height: 254,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(32)),
-        image: DecorationImage(
-          image: AssetImage('lib/days/images/lines 2.png'),
-        ),
-        color: 
-            Color(0xFFF8AB8A),
-        ),
-      child: const Text(
-        'Experience true digital banking experience',
-        maxLines: 2,
-        textAlign: TextAlign.start,
-        overflow: TextOverflow.visible,
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-          fontFamily: 'OPTIVenus',
-          letterSpacing: 0.5,
-        ),
-      ),
-    ),
-  ),
-  FractionallySizedBox(
-    widthFactor: 1,
-    child: Container(
-      padding: const EdgeInsets.all(28),
-      alignment: Alignment.topLeft,
-      width: 190,
-      height: 254,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(32)),
-        image: DecorationImage(
-          image: AssetImage('lib/days/images/lines 2.png'),
-        ),
-        color: 
-            Color(0xFFF8DA8A),
-        ),
-      
-    ),
-  ),
-  
-]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+

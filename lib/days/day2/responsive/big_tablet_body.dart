@@ -21,7 +21,7 @@ class BigTabletBody extends StatelessWidget {
               children: [
                 topSection,
                 const SizedBox(height: 80,),
-                midSection,
+                upcomingPayment,
                 const SizedBox(height: 80,),
                 lastSection
               ],

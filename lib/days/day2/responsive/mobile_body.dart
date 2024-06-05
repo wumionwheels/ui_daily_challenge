@@ -15,11 +15,14 @@ class MyMobileBody extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
-          topSection,
+          topMobileSection,
           const SizedBox(height: 80,),
-          midSection,
+          upcomingPayment,
           const SizedBox(height: 80,),
-          lastSection
+          lastSection,
+          const SizedBox(height: 80,),
+          rightMobileContainer
+
         ],
       ),
     );

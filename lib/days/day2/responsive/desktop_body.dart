@@ -18,21 +18,24 @@ class MyDesktopBody extends StatelessWidget {
                 padding: const EdgeInsets.only(
                   left: 40,
                   right: 20,
-                  top: 152,
+                  top: 164,
                 ),
                 children: [
                   topSection,
                   const SizedBox(
                     height: 80,
                   ),
-                  midSection,
+                  upcomingPayment,
                   const SizedBox(
                     height: 80,
                   ),
                   lastSection
                 ],
               )),
-          Expanded(flex: 1, child: rightDesktopContainer),
+          Expanded(
+            flex: 1, 
+            child: rightDesktopContainer
+          ),
         ],
       ),
     );
