@@ -328,28 +328,40 @@ var topSection = Column(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          WalletCard(
-            backgroundImage: 'lib/days/images/circle lines 1.png',
-            logoImage: 'lib/days/images/logo on card 1.png',
-            amount: formatCurrency(40342),
-            cardNumber: '4589  8345  5356  9053',
-            expiryDate: '10/20',
-            hiddenCode: '***',
-            backgroundColor: const Color.fromRGBO(41, 41, 61, 1),
-            textColor: Colors.white,
+          ConstrainedBox(
+            constraints: const BoxConstraints(
+              minWidth: 343,
+              maxWidth: 384
+            ),
+            child: WalletCard(
+              backgroundImage: 'lib/days/images/circle lines 1.png',
+              logoImage: 'lib/days/images/logo on card 1.png',
+              amount: formatCurrency(40342),
+              cardNumber: '4589  8345  5356  9053',
+              expiryDate: '10/20',
+              hiddenCode: '***',
+              backgroundColor: const Color.fromRGBO(41, 41, 61, 1),
+              textColor: Colors.white,
+            ),
           ),
           const SizedBox(
             width: 20,
           ),
-          WalletCard(
-            backgroundImage: 'lib/days/images/circle lines 2.png',
-            logoImage: 'lib/days/images/logo on card 2.png',
-            amount: formatCurrency(923.21),
-            cardNumber: '4589  8345  5356  9053',
-            expiryDate: '10/20',
-            hiddenCode: '***',
-            backgroundColor: const Color.fromRGBO(248, 235, 233, 1),
-            textColor: const Color.fromRGBO(153, 114, 102, 1),
+          ConstrainedBox(
+            constraints: const BoxConstraints(
+              minWidth: 343,
+              maxWidth: 384
+            ),
+            child: WalletCard(
+              backgroundImage: 'lib/days/images/circle lines 2.png',
+              logoImage: 'lib/days/images/logo on card 2.png',
+              amount: formatCurrency(923.21),
+              cardNumber: '4589  8345  5356  9053',
+              expiryDate: '10/20',
+              hiddenCode: '***',
+              backgroundColor: const Color.fromRGBO(248, 235, 233, 1),
+              textColor: const Color.fromRGBO(153, 114, 102, 1),
+            ),
           )
         ],
       ),
@@ -446,47 +458,61 @@ var upcomingPayment = Column(
 var lastSection = FractionallySizedBox(
   widthFactor: 1.0,
   child: Stack(alignment: Alignment.topRight, children: [
-    Container(
-      padding: const EdgeInsets.only(left: 40, top: 40, bottom: 40),
-      alignment: Alignment.topLeft,
-      height: 254,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(32)),
-        image: DecorationImage(
-          image: AssetImage('lib/days/images/lines 2.png'),
-        ),
-        color: Color.fromRGBO(249, 212, 139, 1),
-      ),
-      child: ConstrainedBox(
-          constraints: const BoxConstraints(
-            minHeight: 88,
-            maxHeight: 174,
-            maxWidth: 300,
+    FractionallySizedBox(
+      widthFactor: 1,
+      child: Container(
+        padding: const EdgeInsets.only(left: 40, top: 40, bottom: 40),
+        alignment: Alignment.topLeft,
+        height: 254,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(32), 
+              bottomRight: Radius.circular(32),
+              topLeft: Radius.circular(32),
+              bottomLeft: Radius.circular(32),
           ),
-          child: Text(
-            'Experience true digital banking experience',
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey.shade800,
-              fontFamily: 'OPTIVenus',
-              letterSpacing: 0.5,
-            ),
-          )),
-    ),
-    Container(
-      padding: const EdgeInsets.all(28),
-      alignment: Alignment.topLeft,
-      width: 176,
-      height: 254,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(32), bottomRight: Radius.circular(32)),
-        image: DecorationImage(
-          image: AssetImage('lib/days/images/lines 2.png'),
+          image: DecorationImage(
+            image: AssetImage('lib/days/images/lines 2.png'),
+          ),
+          color: Color.fromRGBO(249, 212, 139, 1),
         ),
-        color: Color.fromRGBO(252, 237, 207, 1),
+        child: ConstrainedBox(
+            constraints: const BoxConstraints(
+              minHeight: 88,
+              maxHeight: 174,
+              minWidth: 200,
+              maxWidth: 216
+            ),
+            child: Text(
+              'Experience true digital banking experience',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey.shade800,
+                fontFamily: 'OPTIVenus',
+                letterSpacing: 0.5,
+              ),
+            )),
+      ),
+    ),
+    FractionallySizedBox(
+      widthFactor: 0.3,
+      child: Container(
+        padding: const EdgeInsets.all(28),
+        alignment: Alignment.topLeft,
+        width: 176,
+        height: 254,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(32), 
+              bottomRight: Radius.circular(32),
+          ),
+          image: DecorationImage(
+            image: AssetImage('lib/days/images/lines 2.png'),
+          ),
+          color: Color.fromRGBO(252, 237, 207, 1),
+        ),
       ),
     ),
     Padding(
