@@ -182,31 +182,35 @@ var rightDesktopContainer = Container(
             ),
           ],
         ),
-        const SizedBox(height: 80,),
+        const SizedBox(
+          height: 80,
+        ),
         contracts,
-        const SizedBox(height: 80,),
+        const SizedBox(
+          height: 80,
+        ),
         transactions
       ],
     ),
   ),
 );
-
 
 var rightTabletContainer = Container(
   width: 361,
   color: Colors.white,
-  child:  Padding(
+  child: Padding(
     padding: EdgeInsets.all(40),
     child: Column(
       children: [
         contracts,
-        const SizedBox(height: 80,),
+        const SizedBox(
+          height: 80,
+        ),
         transactions
       ],
     ),
   ),
 );
-
 
 var rightMobileContainer = Container(
   width: 361,
@@ -214,12 +218,14 @@ var rightMobileContainer = Container(
     borderRadius: BorderRadius.circular(32),
     color: Colors.white,
   ),
-  child:  Padding(
+  child: Padding(
     padding: EdgeInsets.all(40),
     child: Column(
       children: [
         contracts,
-        const SizedBox(height: 80,),
+        const SizedBox(
+          height: 80,
+        ),
         transactions
       ],
     ),
@@ -329,10 +335,7 @@ var topSection = Column(
       child: Row(
         children: [
           ConstrainedBox(
-            constraints: const BoxConstraints(
-              minWidth: 343,
-              maxWidth: 384
-            ),
+            constraints: const BoxConstraints(minWidth: 343, maxWidth: 384),
             child: WalletCard(
               backgroundImage: 'lib/days/images/circle lines 1.png',
               logoImage: 'lib/days/images/logo on card 1.png',
@@ -348,10 +351,7 @@ var topSection = Column(
             width: 20,
           ),
           ConstrainedBox(
-            constraints: const BoxConstraints(
-              minWidth: 343,
-              maxWidth: 384
-            ),
+            constraints: const BoxConstraints(minWidth: 343, maxWidth: 384),
             child: WalletCard(
               backgroundImage: 'lib/days/images/circle lines 2.png',
               logoImage: 'lib/days/images/logo on card 2.png',
@@ -425,7 +425,7 @@ var upcomingPayment = Column(
         )
       ],
     ),
-    const SizedBox( height: 20),
+    const SizedBox(height: 20),
     const MyListTile(
       containerHeight: 80,
       image: 'lib/days/images/image 2.png',
@@ -451,7 +451,6 @@ var upcomingPayment = Column(
         )
       ],
     ),
-    
   ],
 );
 
@@ -466,10 +465,10 @@ var lastSection = FractionallySizedBox(
         height: 254,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
-              topRight: Radius.circular(32), 
-              bottomRight: Radius.circular(32),
-              topLeft: Radius.circular(32),
-              bottomLeft: Radius.circular(32),
+            topRight: Radius.circular(32),
+            bottomRight: Radius.circular(32),
+            topLeft: Radius.circular(32),
+            bottomLeft: Radius.circular(32),
           ),
           image: DecorationImage(
             image: AssetImage('lib/days/images/lines 2.png'),
@@ -478,11 +477,7 @@ var lastSection = FractionallySizedBox(
         ),
         child: ConstrainedBox(
             constraints: const BoxConstraints(
-              minHeight: 88,
-              maxHeight: 174,
-              minWidth: 200,
-              maxWidth: 216
-            ),
+                minHeight: 88, maxHeight: 174, minWidth: 200, maxWidth: 216),
             child: Text(
               'Experience true digital banking experience',
               textAlign: TextAlign.start,
@@ -505,8 +500,8 @@ var lastSection = FractionallySizedBox(
         height: 254,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
-              topRight: Radius.circular(32), 
-              bottomRight: Radius.circular(32),
+            topRight: Radius.circular(32),
+            bottomRight: Radius.circular(32),
           ),
           image: DecorationImage(
             image: AssetImage('lib/days/images/lines 2.png'),
@@ -515,37 +510,35 @@ var lastSection = FractionallySizedBox(
         ),
       ),
     ),
-    Padding(
-      padding:
-          const EdgeInsets.only(right: 36.0, top: 48, left: 300, bottom: 182),
+    Positioned(
+      top: 48,
+      right: 36,
       child: Image.asset(
         'lib/days/images/image 3.png',
         width: 24,
         height: 24,
       ),
     ),
-    Padding(
-      padding:
-          const EdgeInsets.only(right: 136.0, top: 40, left: 216, bottom: 125),
+    Positioned(
+      top: 40,
+      right: 136,
       child: Image.asset(
         'lib/days/images/image 4.png',
         width: 88,
         height: 88,
       ),
     ),
-    Padding(
-      padding:
-          const EdgeInsets.only(right: 136.0, top: 172, left: 216, bottom: 56),
+    Positioned(
+      top: 172,
+      right: 136,
       child: Image.asset(
         'lib/days/images/image 5.png',
         width: 24,
         height: 24,
       ),
-    )
+    ),
   ]),
 );
-
-
 
 var contracts = Column(
   children: [
@@ -582,7 +575,7 @@ var contracts = Column(
         ),
       ],
     ),
-    const SizedBox( height: 20),
+    const SizedBox(height: 20),
     const MyListTile(
       containerHeight: 80,
       image: 'lib/days/images/image 2.png',
@@ -600,10 +593,8 @@ var contracts = Column(
         ),
       ],
     ),
-    
   ],
 );
-
 
 var transactions = Column(
   children: [
@@ -647,20 +638,17 @@ var transactions = Column(
       children: [
         Container(
           padding: const EdgeInsets.all(4),
-          decoration: const BoxDecoration(
-            color: Color.fromRGBO(233, 239, 252, 1)
-          ),
+          decoration:
+              const BoxDecoration(color: Color.fromRGBO(233, 239, 252, 1)),
           child: const Text(
             'RECEIVED',
-            style: TextStyle(
-              color: Color.fromRGBO(91, 139, 232, 1),
-              fontSize: 12
-            ),
+            style:
+                TextStyle(color: Color.fromRGBO(91, 139, 232, 1), fontSize: 12),
           ),
         ),
       ],
     ),
-    const SizedBox( height: 20),
+    const SizedBox(height: 20),
     MyListTile(
       containerHeight: 56,
       image: 'lib/days/images/image 7.png',
@@ -672,20 +660,17 @@ var transactions = Column(
       children: [
         Container(
           padding: const EdgeInsets.all(4),
-          decoration: const BoxDecoration(
-            color: Color.fromRGBO(233, 239, 252, 1)
-          ),
+          decoration:
+              const BoxDecoration(color: Color.fromRGBO(233, 239, 252, 1)),
           child: const Text(
             'RECEIVED',
-            style: TextStyle(
-              color: Color.fromRGBO(91, 139, 232, 1),
-              fontSize: 12
-            ),
+            style:
+                TextStyle(color: Color.fromRGBO(91, 139, 232, 1), fontSize: 12),
           ),
         ),
       ],
     ),
-    const SizedBox( height: 20),
+    const SizedBox(height: 20),
     MyListTile(
       containerHeight: 56,
       image: 'lib/days/images/image 8.png',
@@ -697,20 +682,17 @@ var transactions = Column(
       children: [
         Container(
           padding: const EdgeInsets.all(4),
-          decoration: const BoxDecoration(
-            color: Color.fromRGBO(245, 245, 245, 1)
-          ),
+          decoration:
+              const BoxDecoration(color: Color.fromRGBO(245, 245, 245, 1)),
           child: const Text(
             'WITHDRAWN',
             style: TextStyle(
-              color: Color.fromRGBO(151, 158, 168, 1),
-              fontSize: 12
-            ),
+                color: Color.fromRGBO(151, 158, 168, 1), fontSize: 12),
           ),
         ),
       ],
     ),
-    const SizedBox( height: 20),
+    const SizedBox(height: 20),
     MyListTile(
       containerHeight: 56,
       image: 'lib/days/images/image 7.png',
@@ -722,20 +704,17 @@ var transactions = Column(
       children: [
         Container(
           padding: const EdgeInsets.all(4),
-          decoration: const BoxDecoration(
-            color: Color.fromRGBO(233, 239, 252, 1)
-          ),
+          decoration:
+              const BoxDecoration(color: Color.fromRGBO(233, 239, 252, 1)),
           child: const Text(
             'RECEIVED',
-            style: TextStyle(
-              color: Color.fromRGBO(91, 139, 232, 1),
-              fontSize: 12
-            ),
+            style:
+                TextStyle(color: Color.fromRGBO(91, 139, 232, 1), fontSize: 12),
           ),
         ),
       ],
     ),
-    const SizedBox( height: 20),
+    const SizedBox(height: 20),
     MyListTile(
       containerHeight: 56,
       image: 'lib/days/images/image 8.png',
@@ -747,33 +726,15 @@ var transactions = Column(
       children: [
         Container(
           padding: const EdgeInsets.all(4),
-          decoration: const BoxDecoration(
-            color: Color.fromRGBO(245, 245, 245, 1)
-          ),
+          decoration:
+              const BoxDecoration(color: Color.fromRGBO(245, 245, 245, 1)),
           child: const Text(
             'WITHDRAWN',
             style: TextStyle(
-              color: Color.fromRGBO(151, 158, 168, 1),
-              fontSize: 12
-            ),
+                color: Color.fromRGBO(151, 158, 168, 1), fontSize: 12),
           ),
         ),
       ],
     ),
   ],
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
